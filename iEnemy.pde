@@ -1,0 +1,4 @@
+class iEnemy{
+  public iEnemy(){
+  }
+}

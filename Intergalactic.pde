@@ -9,12 +9,12 @@
 -pick fighter? maybe?
 */
 
-Spaceship fighter;
-Star[] stars = new Star[2000];
-Perimeter border;
-ArrayList <Bullet> projectile = new ArrayList<Bullet>();
-ArrayList <Asteroid> asteroids = new ArrayList<Asteroid>();
-Base home;
+iSpaceship fighter;
+iStar[] stars = new iStar[2000];
+iBoundary border;
+ArrayList <iBullet> projectile = new ArrayList<iBullet>();
+ArrayList <iAsteroid> asteroids = new ArrayList<iAsteroid>();
+iBase home;
 //Bullet projectile;
 boolean accelerating, decelerating, leftTurn, rightTurn, shoot;
 boolean releasedKey = false;
@@ -37,10 +37,10 @@ public void setup(){
   size(1000,650);
   frameRate(40);
   strokeJoin(ROUND);
-  fighter = new Spaceship();
-  border = new Perimeter();
+  fighter = new iSpaceship();
+  border = new iBoundary();
   nova = 4000;
-  home = new Base();
+  home = new iBase();
         //projectile = new Bullet();
   //stars[i].setX((int)random(width));
   //stars.setY(random(height));
@@ -51,7 +51,7 @@ public void setup(){
     //stars[i].setR(10);
     //stars[i] = new Star((int)stars[i].getX(), (int)stars[i].getY(), (int)stars[i].getR());
     //println(stars[i].getX());
-    stars[i] = new Star();
+    stars[i] = new iStar();
   }
 }
 
@@ -72,6 +72,14 @@ public void draw(){
     stars[i].show();
   }
   home.show();
+  if(shoot == true && frameCount % 10 == 0){ // counter
+      //shoot = false;
+      projectile.add(new iBullet(fighter));
+  }
+  for(int nI = projectile.size() - 1; nI >= 0; nI --){
+    projectile.get(nI).show();
+    projectile.get(nI).move();
+  }
   /*
   you get from the point you released rotate 2) find the difference
   (point1 vs point2 // point1 - point2) and accelerate(opposite) or (towards point 1)
@@ -82,14 +90,7 @@ public void draw(){
   fighter.show();
   fighter.move();
   fighter.deceleratee();
-  if(shoot == true && frameCount % 10 == 0){ // counter
-      //shoot = false;
-      projectile.add(new Bullet(fighter));
-  }
-  for(int nI = projectile.size() - 1; nI >= 0; nI --){
-    projectile.get(nI).show();
-    projectile.get(nI).move();
-  }
+  
   //for(int f = t; f < projectile.size(); f ++){
   //  projectile.get(f).move();
   //  t++;
