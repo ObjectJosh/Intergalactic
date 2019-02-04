@@ -24,6 +24,7 @@ class iBullet extends iFloater{
     myDirectionY = 10 * Math.sin(dRadians) + fighter.getDirectionY();
     bCX = 900 - (int)fighter.myCenterX;
     bCY = 725 - (int)fighter.myCenterY;
+    //distFromBase = dist
   }
   
   public void show(){
@@ -40,6 +41,8 @@ class iBullet extends iFloater{
     translate(-1*(float)myCenterX, -1*(float)myCenterY);
     */
     //pushMatrix();
+    
+               /* Original Bullet // 
     translate(bCX, bCY);
     rotate((float)dRadians);
     fill(255, 0, 0, 150);
@@ -50,7 +53,15 @@ class iBullet extends iFloater{
     rotate(-1*(float)dRadians);
     translate(-1*(bCX), -1*(bCY));
     //popMatrix();
-  }
+                 */
+                 
+    //rotate((float)dRadians);
+    noStroke();
+    fill(255,50, 50, 240);
+    ellipse(-1*(400 - (float)fighter.myCenterX) + bCX, -1*(400-(float)fighter.myCenterY) + bCY, 5,5);//(bCX, bCY, 5 ,5); // 400,400
+    //rotate(-1*(float)dRadians);
+  
+}
   
   public void move(){
     bCX = (int)myDirectionX + bCX;
