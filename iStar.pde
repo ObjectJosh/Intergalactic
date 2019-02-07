@@ -30,7 +30,7 @@ class iStar //note that this class does NOT extend Floater
     //noStroke();
     //translate(0,0);
     noStroke();
-    fill(255, myS); //original 75 shade
+    // ---- >fill(255, myS); //original 75 shade
     ellipse(myX - (int)fighter.myCenterX - 5000, myY -(int)fighter.myCenterY - 5000, myR, myR);
     //ellipse(0,0,50,50);
     //ellipse(mouseX, mouseY, 10, 10);

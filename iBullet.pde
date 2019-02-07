@@ -24,10 +24,22 @@ class iBullet extends iFloater{
   public void show(){
     noStroke();
     fill(255,50, 50, 240);
+    //fill(get(-1*(400 - (int)fighter.myCenterX) + bCX, -1*(400 - (int)fighter.myCenterY) + bCY));//get(abs((int)bCX - 500), abs((int)bCY - 325)));
     ellipse(-1*(400 - (float)fighter.myCenterX) + bCX, -1*(400 - (float)fighter.myCenterY) + bCY, 5,5);
+    fill(255);
+    //ellipse(abs((int)bCX - 500), abs((int)bCY - 325),10,10); < Very cool bounce off top left of screen
   
 }
+  public void collision(int i){
+    //for(int i = 0; i < projectile.size(); i++){
+      //println(get(-1*(400 - (int)fighter.myCenterX) + bCX, -1*(400 - (int)fighter.myCenterY) + bCY));
+      if(get(-1*(400 - (int)fighter.myCenterX) + bCX, -1*(400 - (int)fighter.myCenterY) + bCY) > -16000000 && get(-1*(400 - (int)fighter.myCenterX) + bCX, -1*(400 - (int)fighter.myCenterY) + bCY) < -13000000){
+        println(true);
+      }
+    //}
+  }
   public void distance(int i){
+    //println(dist(abs((float)bCX - 500), abs((float)bCY - 325), (int)abs(fighter.getX() - 400), (int)abs(fighter.getY() - 400)));
     if(dist(abs((float)bCX - 500), abs((float)bCY - 325), (int)abs(fighter.getX() - 400), (int)abs(fighter.getY() - 400)) > 500){
       projectile.remove(i);
     }

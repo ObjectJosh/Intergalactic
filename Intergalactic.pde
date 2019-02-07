@@ -81,7 +81,7 @@ public void draw(){
     asteroids.get(i).showAndMove();
   }
   home.show();
-  {}
+  
   if(shoot == true && frameCount % 10 == 0){// counter
       //shoot = false;
       projectile.add(new iBullet(fighter));
@@ -89,6 +89,7 @@ public void draw(){
   for(int nI = projectile.size() - 1; nI >= 0; nI --){
     projectile.get(nI).show();
     projectile.get(nI).move();
+    projectile.get(nI).collision(nI);
     projectile.get(nI).distance(nI);
   }
   /*
@@ -115,7 +116,7 @@ public void draw(){
   text("Nova: $" + nova, (int)fighter.myCenterX - 400 , (int)fighter.myCenterY - 250);
   //}
   float distFromBaseXz = (900- (float)fighter.myCenterX)-(width/2);
-  float distFromBaseYz = (725- (float)fighter.myCenterY)-(height/2);
+  float distFromBaseYz = (725- (float)fighter.myCenterY)-(height/2); 
   textSize(15);
   int di = ((int)((dist(width/2, height/2, distFromBaseXz + width/2, distFromBaseYz + height/2))/10)*10);
   if(away == true){

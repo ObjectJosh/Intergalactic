@@ -48,6 +48,7 @@ class iAsteroid extends iFloater{
     translate((int)myCenterX - (int)fighter.myCenterX - 5000, (int)myCenterY - (int)fighter.myCenterY - 5000);
     rotate(rotateAsteroid);
     fill(myColor, 30, 30);
+    //fill(255);
     beginShape();
     for(int i = 0; i < myVert; i++){
       angle = map(i, 0, myVert, 0, TWO_PI);
