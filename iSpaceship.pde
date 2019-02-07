@@ -12,8 +12,8 @@ class iSpaceship extends iFloater//extends Floater
     yCorners[2] = ;
     */
     myCenterX = myCenterY = 400;
-      myDirectionX = myDirectionY = 0;
-      myPointDirection = 0;
+    myDirectionX = myDirectionY = 0;
+    myPointDirection = -90;
      
   }
   public void setX(int x){myCenterX = x;}
@@ -29,19 +29,18 @@ class iSpaceship extends iFloater//extends Floater
   
   public void show(){
     stroke(0);
-    //translate(500,325);
     // Translates to center of ship
     translate((float)myCenterX, (float)myCenterY);
     // Sets the rotation point to center of ship
     float dRadians = (float)(myPointDirection*(Math.PI/180));
-    //noStroke();
+    //rotate(-PI/2);
     rotate(dRadians);
     rectMode(CENTER);
     if(accelerating == true){
       noStroke();
       fill(255, 93, 0, 130);
       ellipse(-35, 0, 20, 12);
-      fill(255, 93, 0, 80);
+      fill(255, 93, 0, 100);
       ellipse(-32, 0, 12, 6);
     }
     stroke(0);
@@ -81,7 +80,7 @@ class iSpaceship extends iFloater//extends Floater
   
   public void constantVel(double dAmount)   
   {          
-    double dRadians =myPointDirection*(Math.PI/180);     
+    double dRadians = myPointDirection*(Math.PI/180);     
     myDirectionX = ((dAmount) * Math.cos(dRadians));    
     myDirectionY = ((dAmount) * Math.sin(dRadians));       
   } 

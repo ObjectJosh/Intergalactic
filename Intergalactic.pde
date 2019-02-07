@@ -1,6 +1,6 @@
 /*TO DO LIST
--map perimeter
--bullets
+-XXXmap perimeter
+-XXXbullets
 -enemies
 -asteroids
 -collsion
@@ -53,9 +53,14 @@ public void setup(){
     //println(stars[i].getX());
     stars[i] = new iStar();
   }
+  for(int i = 0; i < 300; i++){
+    asteroids.add(new iAsteroid());
+  }
+  
 }
 
 public void draw(){
+  //println(fighter.myCenterX - 400, fighter.myCenterY - 400);
   background(0);
   border.show();
   if(movingMouse == false){
@@ -71,14 +76,20 @@ public void draw(){
   for(int i = 0; i < stars.length; i++){
     stars[i].show();
   }
+  for(int i = 0; i < asteroids.size(); i++){
+    //asteroids.get(i).show();
+    asteroids.get(i).showAndMove();
+  }
   home.show();
-  if(shoot == true && frameCount % 10 == 0){ // counter
+  {}
+  if(shoot == true && frameCount % 10 == 0){// counter
       //shoot = false;
       projectile.add(new iBullet(fighter));
   }
   for(int nI = projectile.size() - 1; nI >= 0; nI --){
     projectile.get(nI).show();
     projectile.get(nI).move();
+    projectile.get(nI).distance(nI);
   }
   /*
   you get from the point you released rotate 2) find the difference
@@ -90,7 +101,7 @@ public void draw(){
   fighter.show();
   fighter.move();
   fighter.deceleratee();
-  
+  //println(abs(fighter.getX() - 400), abs(fighter.getY() - 400));
   //for(int f = t; f < projectile.size(); f ++){
   //  projectile.get(f).move();
   //  t++;
