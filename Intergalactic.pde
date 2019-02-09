@@ -87,9 +87,10 @@ public void draw(){
       projectile.add(new iBullet(fighter));
   }
   for(int nI = projectile.size() - 1; nI >= 0; nI --){
+  //for(int nI = 0; nI < projectile.size(); nI ++){
     projectile.get(nI).show();
     projectile.get(nI).move();
-    projectile.get(nI).collision(nI);
+    projectile.get(nI).collision();
     projectile.get(nI).distance(nI);
   }
   /*
